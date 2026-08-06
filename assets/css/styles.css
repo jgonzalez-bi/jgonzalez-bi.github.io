@@ -605,3 +605,70 @@ footer{padding:34px 0 44px;border-top:1px solid var(--line);margin-top:90px;colo
   .back-to-top{transition:none!important}
 }
 
+/* Case-study mobile width containment */
+.case-layout,
+.case-layout > *,
+.case-content,
+.case-content section{
+  min-width:0;
+  max-width:100%;
+}
+
+.case-content{
+  width:100%;
+}
+
+.case-content .code,
+.case-content pre,
+.case-content .architecture,
+.case-content .arch-box,
+.case-content .lead-card,
+.case-content .outcome-grid{
+  min-width:0;
+  max-width:100%;
+}
+
+@media(max-width:720px){
+  html,
+  body{
+    max-width:100%;
+    overflow-x:clip;
+  }
+
+  .case-layout{
+    width:min(var(--max),calc(100% - 30px));
+    overflow:visible;
+  }
+
+  .case-content{
+    overflow:hidden;
+  }
+
+  .case-nav{
+    max-width:100%;
+  }
+
+  .case-content .code{
+    width:100%;
+    overflow:hidden;
+  }
+
+  .case-content pre{
+    width:100%;
+    box-sizing:border-box;
+    overflow-x:auto;
+    white-space:pre;
+    font-size:9.5px;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .case-content h2,
+  .case-content h3,
+  .case-content p,
+  .case-content li,
+  .arch-box b,
+  .arch-box span{
+    overflow-wrap:anywhere;
+  }
+}
+
