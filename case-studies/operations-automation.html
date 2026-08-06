@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Caso de automatización operacional con Excel VBA: búsqueda multicriterio, actualización de registros, disponibilidad e historial de incidentes con datos ficticios.">
+  <meta name="theme-color" content="#0a0f16">
+  <title>Caregiver Operations Management System — Josué González</title>
+  
+  <link rel="canonical" href="https://jgonzalez-bi.github.io/case-studies/operations-automation.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
+  <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <meta property="og:site_name" content="Josué González — BI Portfolio">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Caregiver Operations Management System — Josué González">
+  <meta property="og:description" content="Caso de automatización operacional con Excel VBA: búsqueda multicriterio, actualización de registros, disponibilidad e historial de incidentes con datos ficticios.">
+  <meta property="og:url" content="https://jgonzalez-bi.github.io/case-studies/operations-automation.html">
+  <meta property="og:image" content="https://jgonzalez-bi.github.io/assets/brand/social-preview.png">
+  <meta property="og:image:secure_url" content="https://jgonzalez-bi.github.io/assets/brand/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Josué González — Business Intelligence and Data Analytics Portfolio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Caregiver Operations Management System — Josué González">
+  <meta name="twitter:description" content="Caso de automatización operacional con Excel VBA: búsqueda multicriterio, actualización de registros, disponibilidad e historial de incidentes con datos ficticios.">
+  <meta name="twitter:image" content="https://jgonzalez-bi.github.io/assets/brand/social-preview.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body data-title-es="Caregiver Operations Management System — Josué González" data-title-en="Caregiver Operations Management System — Josue Gonzalez">
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../index.html">JG /</a>
+    <nav class="nav-links">
+      <a href="../index.html#proyectos" data-i18n="nav.work">Proyectos</a>
+      <a href="../index.html#trayectoria" data-i18n="nav.path">Trayectoria</a>
+      <a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma">
+      <button data-lang="es" aria-pressed="true">ES</button>
+      <button data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="case-hero">
+    <div class="wrap">
+      <a class="back-link" href="../index.html#proyectos">← <span data-i18n="case.back">Volver a proyectos</span></a>
+      <p class="eyebrow" data-i18n="case.eyebrow">Caso 03 · Excel & VBA</p>
+      <h1 data-i18n="case.title">Caregiver Operations Management System</h1>
+      <p class="case-summary" data-i18n="case.summary">Herramienta funcional en Excel VBA para centralizar registros de cuidadores, aplicar filtros operativos, actualizar información y consultar incidentes desde una sola interfaz.</p>
+      <div class="case-meta">
+        <span class="meta-pill">Excel</span>
+        <span class="meta-pill">VBA</span>
+        <span class="meta-pill">UserForms</span>
+        <span class="meta-pill">Data Validation</span>
+        <span class="meta-pill">Operations</span>
+      </div>
+    </div>
+  </section>
+
+  <section><div class="wrap case-cover reveal">
+<div class="care-app" aria-label="Recreación codificada de la herramienta de gestión de cuidadores">
+  <div class="care-window-bar">
+    <div>
+      <strong>Caregiver Operations Management System</strong>
+      <small>Operational prototype inspired by the original Excel VBA workflow</small>
+    </div>
+    <span>— □ ×</span>
+  </div>
+
+  <div class="care-body">
+    <section class="care-block">
+      <h4>Caregiver Information</h4>
+      <div class="care-grid three">
+        <div class="fake-field"><label>Caregiver ID</label><span>4321</span></div>
+        <div class="fake-field"><label>Full Name</label><span>John Smith</span></div>
+        <div class="fake-field"><label>Caregiver Gender</label><span>Male</span></div>
+      </div>
+
+      <div class="care-chip-line">
+        <b>Language</b>
+        <span class="chip active">English</span>
+        <span class="chip">Spanish</span>
+        <span class="chip">Other</span>
+      </div>
+    </section>
+
+    <section class="care-block">
+      <h4>Preferences & Availability</h4>
+      <div class="care-chip-line">
+        <b>Status</b>
+        <span class="chip active">Pending Placement</span>
+        <span class="chip">Assigned</span>
+      </div>
+
+      <div class="care-layout-two">
+        <div class="mini-box large">
+          <strong>Availability</strong>
+          <div class="availability-table">
+            <div><span>Monday</span><em>Pending Placement</em></div>
+            <div><span>Tuesday</span><em>Pending Placement</em></div>
+            <div><span>Wednesday</span><em class="ok">Assigned</em></div>
+            <div><span>Thursday</span><em>Pending Placement</em></div>
+            <div><span>Friday</span><em class="ok">Assigned</em></div>
+            <div><span>Saturday</span><em>Pending Placement</em></div>
+            <div><span>Sunday</span><em>Pending Placement</em></div>
+            <div><span>Preferred Gender</span><em>Female</em></div>
+          </div>
+          <div class="fake-field notes"><label>Notes</label><span>Prefers overnight shifts</span></div>
+        </div>
+
+        <div class="mini-box large">
+          <strong>Case Preferences</strong>
+          <div class="mini-tags stack">
+            <span>Bedbound</span><span>Children</span><span>Pets</span>
+          </div>
+          <strong class="subhead">Location</strong>
+          <div class="mini-tags stack">
+            <span>Brooklyn</span><span>Manhattan</span><span>Queens</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="care-results-grid">
+      <div class="mini-box">
+        <strong>Caregiver Results</strong>
+        <div class="mini-table wide">
+          <div class="head"><span>ID</span><span>Name</span><span>Status</span></div>
+          <div><span>4321</span><span>John Smith</span><span>Pending</span></div>
+          <div><span>1234</span><span>Juan Antonio</span><span>Assigned</span></div>
+          <div><span>2530</span><span>Ruben Marcos</span><span>Pending</span></div>
+        </div>
+      </div>
+      <div class="mini-box">
+        <strong>Incident History</strong>
+        <div class="mini-table wide">
+          <div class="head"><span>Type</span><span>Date</span><span>Note</span></div>
+          <div><span>NCNS</span><span>Jul 8</span><span>No call</span></div>
+          <div><span>Late</span><span>Jun 7</span><span>45 min</span></div>
+          <div><span>Call Out</span><span>May 24</span><span>Emergency</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="care-actions">
+      <button>Search</button>
+      <button>Save Caregiver</button>
+      <button>Update Caregiver</button>
+      <button>Clear Form</button>
+    </div>
+  </div>
+</div>
+</div></section>
+
+  <div class="wrap case-layout">
+    <aside class="case-nav">
+      <a href="#contexto" data-i18n="nav.context">Contexto</a>
+      <a href="#solucion" data-i18n="nav.solution">Solución</a>
+      <a href="#busqueda" data-i18n="nav.search">Búsqueda</a>
+      <a href="#modelo" data-i18n="nav.model">Modelo de datos</a>
+      <a href="#incidentes" data-i18n="nav.incidents">Incidentes</a>
+      <a href="#alcance" data-i18n="nav.scope">Alcance</a>
+    </aside>
+
+    <article class="case-content">
+      <section id="contexto">
+        <h2 data-i18n="context.title">Contexto</h2>
+        <p class="lead-card" data-i18n="context.lead">Encontrar un cuidador adecuado requiere combinar disponibilidad, idioma, ubicación, preferencias y condiciones específicas del caso. Hacerlo directamente sobre una hoja extensa vuelve la consulta lenta y aumenta la posibilidad de editar información por error.</p>
+        <p data-i18n="context.p">Construí este prototipo como una capa de aplicación sobre Excel: el usuario interactúa con un formulario controlado mientras VBA gestiona la consulta y el mantenimiento de los registros.</p>
+      </section>
+
+      <section id="solucion">
+        <h2 data-i18n="solution.title">La solución</h2>
+        <p data-i18n="solution.p">La solución final se organiza en tres componentes principales: una pantalla de entrada, una base de cuidadores y un registro de incidentes. El libro también conserva hojas de borrador con datos ficticios, lo que documenta la evolución desde la primera estructura hasta la interfaz final.</p>
+
+        <div class="architecture">
+          <div class="arch-box"><b>VBA USERFORM</b><span data-i18n="solution.arch1">Captura, filtros y acciones controladas</span></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box"><b>AIDE DATA BASE</b><span data-i18n="solution.arch2">21 campos operativos por cuidador</span></div>
+          <div class="arch-arrow">↔</div>
+          <div class="arch-box"><b>INCIDENTS REPORT</b><span data-i18n="solution.arch3">Historial relacionado mediante Caregiver ID</span></div>
+        </div>
+
+        <div class="fact-grid">
+          <div class="fact"><b>21</b><span data-i18n="facts.1">campos en la estructura final de cuidadores</span></div>
+          <div class="fact"><b>4</b><span data-i18n="facts.2">acciones principales: buscar, guardar, actualizar y limpiar</span></div>
+          <div class="fact"><b>3</b><span data-i18n="facts.3">componentes finales: interfaz, base e incidentes</span></div>
+        </div>
+      </section>
+
+      <section id="busqueda">
+        <h2 data-i18n="search.title">Búsqueda multicriterio</h2>
+        <p data-i18n="search.p">El formulario permite combinar criterios sin que el usuario tenga que construir filtros manuales sobre la hoja. Los resultados se muestran en una lista y, al seleccionar un cuidador, el formulario puede recuperar su información y los incidentes vinculados.</p>
+        <ul>
+          <li data-i18n="search.1">Identificación por Caregiver ID y nombre completo.</li>
+          <li data-i18n="search.2">Idiomas: inglés, español u otro.</li>
+          <li data-i18n="search.3">Disponibilidad para los siete días y estado Pending Placement o Assigned.</li>
+          <li data-i18n="search.4">Preferencias del caso: paciente encamado, niños, fumadores, mascotas y tipo de convivencia.</li>
+          <li data-i18n="search.5">Ubicación: Brooklyn, Bronx, Manhattan, Queens y Long Island.</li>
+        </ul>
+      </section>
+
+      <section id="modelo">
+        <h2 data-i18n="model.title">Modelo de datos</h2>
+        <p data-i18n="model.p">La base final separa identidad, idioma, disponibilidad, preferencias, notas y ubicación. El Caregiver ID funciona como clave operativa para localizar registros y relacionar al cuidador con su historial de incidentes.</p>
+        <div class="fact-grid">
+          <div class="fact"><b>7</b><span data-i18n="model.1">días de disponibilidad modelados</span></div>
+          <div class="fact"><b>5</b><span data-i18n="model.2">ubicaciones seleccionables</span></div>
+          <div class="fact"><b>5</b><span data-i18n="model.3">condiciones y preferencias del caso</span></div>
+        </div>
+        <p class="prototype-note" data-i18n="model.note">El proyecto se presenta como prototipo funcional. Todos los nombres y registros mostrados son ficticios y no contienen información de pacientes ni PHI.</p>
+      </section>
+
+      <section id="incidentes">
+        <h2 data-i18n="incidents.title">Consulta de incidentes</h2>
+        <p data-i18n="incidents.p">El historial usa una estructura simple —Caregiver ID, tipo y fecha— para que la interfaz pueda mostrar los incidentes asociados al cuidador seleccionado. Los datos de demostración incluyen NCNS, Late y Call Out.</p>
+        
+
+<div class="evidence-grid">
+  <div class="evidence-card coded-data-card">
+    <div class="coded-table">
+      <div class="coded-table-head"><span>Caregiver ID</span><span>Type</span><span>Date</span></div>
+      <div><span>4321</span><span>NCNS</span><span>Jul 8, 2025</span></div>
+      <div><span>4321</span><span>Late</span><span>Jun 7, 2025</span></div>
+      <div><span>1224</span><span>Call Out</span><span>Mar 20, 2025</span></div>
+      <div><span>2530</span><span>NCNS</span><span>Apr 19, 2025</span></div>
+    </div>
+    <h3 data-i18n="incidents.card1">Registro estructurado</h3>
+    <p data-i18n="incidents.card1p">Cada evento queda vinculado al cuidador mediante su Caregiver ID.</p>
+  </div>
+  <div class="evidence-card coded-flow-card">
+    <div class="coded-flow">
+      <span>Selected caregiver</span><b>→</b><span>Caregiver ID</span><b>→</b><span>Incident history</span>
+    </div>
+    <h3 data-i18n="incidents.card2">Consulta relacionada</h3>
+    <p data-i18n="incidents.card2p">NCNS, tardanzas y cancelaciones se consultan sin navegar directamente entre hojas.</p>
+  </div>
+</div>
+
+      </section>
+
+      <section id="alcance">
+        <h2 data-i18n="scope.title">Resultado y alcance</h2>
+        <p data-i18n="scope.p">El resultado es una prueba concreta de desarrollo orientado al usuario dentro de Excel: reemplaza la navegación manual por una interfaz, valida la entrada y concentra la búsqueda, actualización y consulta de incidentes en un flujo único.</p>
+        <div class="outcome-grid">
+          <div class="outcome"><b>UserForm</b><span data-i18n="scope.1">interfaz centralizada sobre una base de Excel</span></div>
+          <div class="outcome"><b>Multi-filter</b><span data-i18n="scope.2">búsqueda por disponibilidad, idioma, ubicación y condiciones</span></div>
+          <div class="outcome"><b>CRUD</b><span data-i18n="scope.3">registro, consulta y actualización sin editar celdas directamente</span></div>
+        </div>
+        <p class="confidential" data-i18n="scope.note">La captura corresponde al archivo real desarrollado por mí. Los registros utilizados para la demostración son dummies.</p>
+      </section>
+
+      <a class="next-case" href="financial-dashboard.html">
+        <div>
+          <small data-i18n="next.label">Volver al primer caso</small>
+          <b data-i18n="next.title">Dashboard financiero global</b>
+        </div>
+        <span>↺</span>
+      </a>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span data-i18n="footer">Hecho con HTML, CSS y JavaScript · Datos de demostración sintéticos</span>
+    <a data-cv-link href="../cv/Josue_Gonzalez_CV_ES.pdf" download>CV ↓</a>
+  </div>
+</footer>
+
+<script>
+window.PAGE_I18N={
+es:{
+  'case.back':'Volver a proyectos',
+  'case.eyebrow':'Caso 03 · Excel & VBA',
+  'case.title':'Caregiver Operations Management System',
+  'case.summary':'Herramienta funcional en Excel VBA para centralizar registros de cuidadores, aplicar filtros operativos, actualizar información y consultar incidentes desde una sola interfaz.',
+  'nav.context':'Contexto','nav.solution':'Solución','nav.search':'Búsqueda','nav.model':'Modelo de datos','nav.incidents':'Incidentes','nav.scope':'Alcance',
+  'context.title':'Contexto',
+  'context.lead':'Encontrar un cuidador adecuado requiere combinar disponibilidad, idioma, ubicación, preferencias y condiciones específicas del caso. Hacerlo directamente sobre una hoja extensa vuelve la consulta lenta y aumenta la posibilidad de editar información por error.',
+  'context.p':'Construí este prototipo como una capa de aplicación sobre Excel: el usuario interactúa con un formulario controlado mientras VBA gestiona la consulta y el mantenimiento de los registros.',
+  'solution.title':'La solución',
+  'solution.p':'La solución final se organiza en tres componentes principales: una pantalla de entrada, una base de cuidadores y un registro de incidentes. El libro también conserva hojas de borrador con datos ficticios, lo que documenta la evolución desde la primera estructura hasta la interfaz final.',
+  'solution.arch1':'Captura, filtros y acciones controladas','solution.arch2':'21 campos operativos por cuidador','solution.arch3':'Historial relacionado mediante Caregiver ID',
+  'facts.1':'campos en la estructura final de cuidadores','facts.2':'acciones principales: buscar, guardar, actualizar y limpiar','facts.3':'componentes finales: interfaz, base e incidentes',
+  'search.title':'Búsqueda multicriterio',
+  'search.p':'El formulario permite combinar criterios sin que el usuario tenga que construir filtros manuales sobre la hoja. Los resultados se muestran en una lista y, al seleccionar un cuidador, el formulario puede recuperar su información y los incidentes vinculados.',
+  'search.1':'Identificación por Caregiver ID y nombre completo.','search.2':'Idiomas: inglés, español u otro.','search.3':'Disponibilidad para los siete días y estado Pending Placement o Assigned.','search.4':'Preferencias del caso: paciente encamado, niños, fumadores, mascotas y tipo de convivencia.','search.5':'Ubicación: Brooklyn, Bronx, Manhattan, Queens y Long Island.',
+  'model.title':'Modelo de datos','model.p':'La base final separa identidad, idioma, disponibilidad, preferencias, notas y ubicación. El Caregiver ID funciona como clave operativa para localizar registros y relacionar al cuidador con su historial de incidentes.',
+  'model.1':'días de disponibilidad modelados','model.2':'ubicaciones seleccionables','model.3':'condiciones y preferencias del caso',
+  'model.note':'El proyecto se presenta como prototipo funcional. Todos los nombres y registros mostrados son ficticios y no contienen información de pacientes ni PHI.',
+  'incidents.title':'Consulta de incidentes','incidents.p':'El historial usa una estructura simple —Caregiver ID, tipo y fecha— para que la interfaz pueda mostrar los incidentes asociados al cuidador seleccionado. Los datos de demostración incluyen NCNS, Late y Call Out.',
+  'incidents.card1':'Registro estructurado','incidents.card1p':'Cada evento queda vinculado al cuidador mediante su Caregiver ID.','incidents.card2':'Tipos demostrados','incidents.card2p':'NCNS, llegadas tardías y cancelaciones de turno se consultan desde la misma pantalla, sin navegar entre hojas.',
+  'scope.title':'Resultado y alcance','scope.p':'El resultado es una prueba concreta de desarrollo orientado al usuario dentro de Excel: reemplaza la navegación manual por una interfaz, valida la entrada y concentra la búsqueda, actualización y consulta de incidentes en un flujo único.',
+  'scope.1':'interfaz centralizada sobre una base de Excel','scope.2':'búsqueda por disponibilidad, idioma, ubicación y condiciones','scope.3':'registro, consulta y actualización sin editar celdas directamente',
+  'scope.note':'La captura corresponde al archivo real desarrollado por mí. Los registros utilizados para la demostración son dummies.',
+  'next.label':'Volver al primer caso','next.title':'Dashboard financiero global'
+},
+en:{
+  'case.back':'Back to projects',
+  'case.eyebrow':'Case 03 · Excel & VBA',
+  'case.title':'Caregiver Operations Management System',
+  'case.summary':'A functional Excel VBA tool that centralizes caregiver records, applies operational filters, updates information and retrieves incidents through a single interface.',
+  'nav.context':'Context','nav.solution':'Solution','nav.search':'Search','nav.model':'Data model','nav.incidents':'Incidents','nav.scope':'Scope',
+  'context.title':'Context',
+  'context.lead':'Finding a suitable caregiver requires combining availability, language, location, preferences and case-specific conditions. Working directly in a long worksheet makes this lookup slower and increases the chance of accidental edits.',
+  'context.p':'I built this prototype as an application layer on top of Excel: the user works through a controlled form while VBA manages record lookup and maintenance.',
+  'solution.title':'The solution',
+  'solution.p':'The final solution is organized into three main components: an input screen, a caregiver database and an incident register. The workbook also retains draft sheets with dummy data, documenting its evolution from an early structure to the final interface.',
+  'solution.arch1':'Controlled input, filters and actions','solution.arch2':'21 operational fields per caregiver','solution.arch3':'History linked through Caregiver ID',
+  'facts.1':'fields in the final caregiver structure','facts.2':'core actions: search, save, update and clear','facts.3':'final components: interface, database and incidents',
+  'search.title':'Multi-criteria search',
+  'search.p':'The form combines criteria without requiring the user to manually build worksheet filters. Results appear in a list and selecting a caregiver can retrieve both their information and linked incidents.',
+  'search.1':'Identification by Caregiver ID and full name.','search.2':'Languages: English, Spanish or other.','search.3':'Availability for all seven days and Pending Placement or Assigned status.','search.4':'Case preferences: bedbound patient, children, smokers, pets and living arrangement.','search.5':'Location: Brooklyn, Bronx, Manhattan, Queens and Long Island.',
+  'model.title':'Data model','model.p':'The final database separates identity, language, availability, preferences, notes and location. Caregiver ID acts as the operational key used to locate records and relate a caregiver to their incident history.',
+  'model.1':'availability days modeled','model.2':'selectable locations','model.3':'case conditions and preferences',
+  'model.note':'This project is presented as a functional prototype. Every displayed name and record is fictitious and contains no patient information or PHI.',
+  'incidents.title':'Incident lookup','incidents.p':'The history uses a simple structure —Caregiver ID, type and date— allowing the interface to display incidents associated with the selected caregiver. The demo data includes NCNS, Late and Call Out.',
+  'incidents.card1':'Structured register','incidents.card1p':'Each event is linked to the caregiver through their Caregiver ID.','incidents.card2':'Demonstrated types','incidents.card2p':'NCNS, late arrivals and call-outs can be reviewed from the same screen without navigating between worksheets.',
+  'scope.title':'Outcome and scope','scope.p':'The result is concrete evidence of user-oriented development inside Excel: it replaces manual worksheet navigation with an interface, validates input and brings lookup, updates and incident review into one flow.',
+  'scope.1':'centralized interface over an Excel database','scope.2':'search by availability, language, location and conditions','scope.3':'record creation, lookup and update without direct cell editing',
+  'scope.note':'The screenshot comes from the real file I developed. All records used in the demonstration are dummy data.',
+  'next.label':'Back to the first case','next.title':'Global financial dashboard'
+}
+};
+</script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
