@@ -1,4 +1,4 @@
-# Josué González — Business Intelligence & Data Analytics Portfolio
+# Josué González — Business Intelligence & Data Analyst Portfolio
 
 ![Portfolio preview](assets/brand/social-preview.png)
 
