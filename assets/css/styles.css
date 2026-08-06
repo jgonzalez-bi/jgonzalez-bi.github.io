@@ -537,3 +537,71 @@ footer{padding:34px 0 44px;border-top:1px solid var(--line);margin-top:90px;colo
 .case-demo-glossary{margin-top:15px}
 .case-demo-glossary strong{display:block;margin-bottom:7px;font-family:var(--display);font-size:1rem}
 .case-demo-glossary p{margin:0;color:var(--muted);font-size:.94rem;line-height:1.65}
+
+/* Navigation state, contact copy action and back-to-top control */
+.nav-links a{position:relative}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;
+  border-radius:999px;background:var(--accent);
+  transform:scaleX(0);transform-origin:center;
+  transition:transform .2s ease
+}
+.nav-links a.active{color:var(--text)}
+.nav-links a.active::after{transform:scaleX(1)}
+
+.contact-email-row{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px
+}
+.contact-email-row .contact-link{min-width:0}
+.contact-email-row .contact-link b{overflow-wrap:anywhere;text-align:right}
+.copy-email-button{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  min-width:102px;border:1px solid var(--line);border-radius:9px;
+  padding:11px 13px;background:rgba(10,16,24,.43);color:var(--muted);
+  font-family:var(--mono);font-size:11px;cursor:pointer;
+  transition:border-color .2s,color .2s,background .2s,transform .2s
+}
+.copy-email-button:hover{
+  border-color:var(--accent);color:var(--text);transform:translateY(-1px)
+}
+.copy-email-button.copied{
+  border-color:rgba(82,201,147,.72);color:var(--positive);
+  background:rgba(82,201,147,.08)
+}
+.copy-email-icon{font-size:15px;line-height:1}
+
+.back-to-top{
+  position:fixed;right:20px;bottom:20px;z-index:90;
+  width:46px;height:46px;border:1px solid var(--line);border-radius:12px;
+  display:grid;place-items:center;background:rgba(17,27,40,.92);
+  color:var(--accent);box-shadow:0 16px 34px rgba(0,0,0,.36);
+  font-family:var(--mono);font-size:20px;cursor:pointer;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity .2s ease,visibility .2s ease,transform .2s ease,
+             border-color .2s ease,background .2s ease
+}
+.back-to-top:hover{
+  border-color:var(--accent);background:var(--panel-2);transform:translateY(-2px)
+}
+.back-to-top.visible{
+  opacity:1;visibility:visible;pointer-events:auto;transform:none
+}
+
+@media(max-width:720px){
+  .nav-links a::after{display:none}
+  .nav-links a.active{
+    color:var(--accent);background:rgba(240,180,41,.08);
+    border-radius:7px;padding-left:10px
+  }
+  .contact-email-row{grid-template-columns:1fr}
+  .copy-email-button{width:100%}
+  .back-to-top{right:15px;bottom:15px;width:44px;height:44px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .nav-links a::after,
+  .copy-email-button,
+  .back-to-top{transition:none!important}
+}
+

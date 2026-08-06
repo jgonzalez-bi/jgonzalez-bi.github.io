@@ -315,7 +315,7 @@
         <div class="report-stage">
           <figure class="report-panel" id="panel-executive" role="tabpanel" aria-labelledby="tab-executive" data-report-panel="executive">
             <div class="report-image-frame">
-              <img src="executive-overview.png" alt="Executive Overview page of a synthetic commercial Power BI report" loading="lazy">
+              <img src="executive-overview.png" alt="Executive Overview page of a synthetic commercial Power BI report" width="1404" height="789" loading="lazy" decoding="async">
             </div>
             <figcaption class="report-insight">
               <div class="report-insight-label" data-i18n="demo.insight.label">Análisis de la página</div>
@@ -328,7 +328,7 @@
 
           <figure class="report-panel" id="panel-product" role="tabpanel" aria-labelledby="tab-product" data-report-panel="product" hidden>
             <div class="report-image-frame">
-              <img src="product-analysis.png" alt="Product Analysis page of a synthetic commercial Power BI report" loading="lazy">
+              <img src="product-analysis.png" alt="Product Analysis page of a synthetic commercial Power BI report" width="1406" height="789" loading="lazy" decoding="async">
             </div>
             <figcaption class="report-insight">
               <div class="report-insight-label" data-i18n="demo.insight.label">Análisis de la página</div>
@@ -341,7 +341,7 @@
 
           <figure class="report-panel" id="panel-sales" role="tabpanel" aria-labelledby="tab-sales" data-report-panel="sales" hidden>
             <div class="report-image-frame">
-              <img src="sales-team-performance.png" alt="Sales Team Performance page of a synthetic commercial Power BI report" loading="lazy">
+              <img src="sales-team-performance.png" alt="Sales Team Performance page of a synthetic commercial Power BI report" width="1407" height="788" loading="lazy" decoding="async">
             </div>
             <figcaption class="report-insight">
               <div class="report-insight-label" data-i18n="demo.insight.label">Análisis de la página</div>
@@ -382,7 +382,13 @@
     <div class="wrap contact-card reveal">
       <div><div class="section-kicker" data-i18n="contact.kicker">Hablemos</div><h2 data-i18n="contact.title">Datos claros. Decisiones mejores.</h2><p data-i18n="contact.desc">Estoy abierto a conversaciones sobre posiciones de Business Intelligence y Data Analytics, especialmente en entornos financieros, comerciales u operativos.</p></div>
       <div class="contact-links">
-        <a class="contact-link" href="mailto:josue41999@gmail.com"><span data-i18n="contact.mail">Correo</span><b>josue41999@gmail.com</b></a>
+        <div class="contact-email-row">
+          <a class="contact-link" href="mailto:josue41999@gmail.com"><span data-i18n="contact.mail">Correo</span><b>josue41999@gmail.com</b></a>
+          <button class="copy-email-button" type="button" data-copy-email="josue41999@gmail.com" aria-label="Copiar dirección de correo" title="Copiar dirección de correo">
+            <span class="copy-email-icon" aria-hidden="true">⧉</span>
+            <span data-copy-label data-i18n="contact.copy">Copiar</span>
+          </button>
+        </div>
         <a class="contact-link" href="https://www.linkedin.com/in/josue-gonza/" target="_blank" rel="noopener"><span>LinkedIn</span><b>josue-gonza ↗</b></a>
         <a class="contact-link" href="https://github.com/jgonzalez-bi" target="_blank" rel="noopener"><span>GitHub</span><b>jgonzalez-bi ↗</b></a>
         <a class="contact-link" data-cv-home href="cv/Josue_Gonzalez_CV_ES.pdf" download><span data-i18n="contact.cv">CV en PDF</span><b>Download ↓</b></a>
@@ -391,6 +397,10 @@
   </section>
 </main>
 <footer><div class="wrap footer-row"><span data-i18n="footer">Hecho con HTML, CSS y JavaScript · Datos de demostración sintéticos</span><span>© 2026 Josué González</span></div></footer>
+<button class="back-to-top" type="button" data-back-to-top title="Volver arriba">
+  <span aria-hidden="true">↑</span>
+  <span class="sr-only" data-i18n="nav.top">Volver arriba</span>
+</button>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

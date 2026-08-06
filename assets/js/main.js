@@ -1,6 +1,6 @@
 const COMMON = {
   es: {
-    'nav.work':'Proyectos','nav.process':'Proceso','nav.demo':'Demo','nav.path':'Trayectoria','nav.contact':'Contacto',
+    'nav.work':'Proyectos','nav.process':'Proceso','nav.demo':'Demo','nav.path':'Trayectoria','nav.contact':'Contacto','nav.top':'Volver arriba',
     'hero.eyebrow':'Business Intelligence & Data Analyst · Panamá','hero.name':'Josué González','hero.role':'Power BI · SQL · Databricks · Excel',
     'hero.lede':'Transformo datos financieros y operativos en dashboards, procesos automatizados y análisis confiables que ayudan a tomar mejores decisiones.',
     'hero.projects':'Ver proyectos','hero.cv':'Descargar CV','hero.linkedin':'LinkedIn','hero.availability':'Abierto a roles de BI y analítica en Panamá o remotos',
@@ -21,10 +21,10 @@ const COMMON = {
     'path.2.date':'Jul 2022 · Nov 2025','path.2.role':'Pre-Billing Specialist','path.2.company':'Insignia Resources','path.2.desc':'Validación de datos operativos, automatización en Excel y construcción de dashboards y herramientas VBA.',
     'path.3.date':'Sep 2019 · Jul 2022','path.3.role':'Collection Specialist','path.3.company':'Connect International','path.3.desc':'Reportería diaria, análisis de cuentas, procesamiento de pagos e integridad de datos financieros.',
     'stack.title':'Stack principal','stack.bi':'Visualización y BI','stack.data':'Datos y transformación','stack.ops':'Automatización y negocio','stack.edu':'Formación',
-    'contact.kicker':'Hablemos','contact.title':'Datos claros. Decisiones mejores.','contact.desc':'Estoy abierto a conversaciones sobre posiciones de Business Intelligence y Data Analytics, especialmente en entornos financieros, comerciales u operativos.','contact.mail':'Correo','contact.cv':'CV en PDF','footer':'Hecho con HTML, CSS y JavaScript · Datos de demostración sintéticos'
+    'contact.kicker':'Hablemos','contact.title':'Datos claros. Decisiones mejores.','contact.desc':'Estoy abierto a conversaciones sobre posiciones de Business Intelligence y Data Analytics, especialmente en entornos financieros, comerciales u operativos.','contact.mail':'Correo','contact.copy':'Copiar','contact.copied':'Copiado','contact.copyAria':'Copiar dirección de correo','contact.cv':'CV en PDF','footer':'Hecho con HTML, CSS y JavaScript · Datos de demostración sintéticos'
   },
   en: {
-    'nav.work':'Work','nav.process':'Process','nav.demo':'Demo','nav.path':'Experience','nav.contact':'Contact',
+    'nav.work':'Work','nav.process':'Process','nav.demo':'Demo','nav.path':'Experience','nav.contact':'Contact','nav.top':'Back to top',
     'hero.eyebrow':'Business Intelligence & Data Analyst · Panama','hero.name':'Josue Gonzalez','hero.role':'Power BI · SQL · Databricks · Excel',
     'hero.lede':'I turn financial and operational data into dashboards, automated workflows and trustworthy analysis that help teams make better decisions.',
     'hero.projects':'View projects','hero.cv':'Download resume','hero.linkedin':'LinkedIn','hero.availability':'Open to BI and analytics roles in Panama or remote',
@@ -45,7 +45,7 @@ const COMMON = {
     'path.2.date':'Jul 2022 · Nov 2025','path.2.role':'Pre-Billing Specialist','path.2.company':'Insignia Resources','path.2.desc':'Operational data validation, Excel automation and development of dashboards and VBA tools.',
     'path.3.date':'Sep 2019 · Jul 2022','path.3.role':'Collection Specialist','path.3.company':'Connect International','path.3.desc':'Daily reporting, account analysis, payment processing and financial data integrity.',
     'stack.title':'Core stack','stack.bi':'Visualization and BI','stack.data':'Data and transformation','stack.ops':'Automation and business','stack.edu':'Education',
-    'contact.kicker':'Let’s talk','contact.title':'Clear data. Better decisions.','contact.desc':'I am open to Business Intelligence and Data Analytics opportunities, especially in financial, commercial or operational environments.','contact.mail':'Email','contact.cv':'Resume PDF','footer':'Built with HTML, CSS and JavaScript · Synthetic demo data'
+    'contact.kicker':'Let’s talk','contact.title':'Clear data. Better decisions.','contact.desc':'I am open to Business Intelligence and Data Analytics opportunities, especially in financial, commercial or operational environments.','contact.mail':'Email','contact.copy':'Copy','contact.copied':'Copied','contact.copyAria':'Copy email address','contact.cv':'Resume PDF','footer':'Built with HTML, CSS and JavaScript · Synthetic demo data'
   }
 };
 
@@ -71,16 +71,164 @@ function setLanguage(lang){
   $$('[data-cv-link]').forEach(a => a.href = lang === 'es' ? '../cv/Josue_Gonzalez_CV_ES.pdf' : '../cv/Josue_Gonzalez_CV_EN.pdf');
   $$('[data-cv-home]').forEach(a => a.href = lang === 'es' ? 'cv/Josue_Gonzalez_CV_ES.pdf' : 'cv/Josue_Gonzalez_CV_EN.pdf');
   document.title = lang === 'es' ? (document.body.dataset.titleEs || 'Josué González — Business Intelligence & Data Analyst') : (document.body.dataset.titleEn || 'Josue Gonzalez — Business Intelligence & Data Analyst');
+
+  const copyButton = $('[data-copy-email]');
+  if(copyButton){
+    const copyAria = dict['contact.copyAria'] || (lang === 'es' ? 'Copiar dirección de correo' : 'Copy email address');
+    copyButton.setAttribute('aria-label', copyAria);
+    copyButton.setAttribute('title', copyAria);
+  }
+
+  const backToTop = $('[data-back-to-top]');
+  if(backToTop){
+    backToTop.setAttribute('title', dict['nav.top'] || (lang === 'es' ? 'Volver arriba' : 'Back to top'));
+  }
+
   document.dispatchEvent(new CustomEvent('languagechange',{detail:{lang}}));
 }
 
 $$('[data-lang]').forEach(btn => btn.addEventListener('click',()=>setLanguage(btn.dataset.lang)));
+
 const menu = $('[data-mobile-menu]');
-if(menu){ menu.addEventListener('click',()=>{ const nav=$('.nav-links'); const open=nav.classList.toggle('open'); menu.setAttribute('aria-expanded',String(open)); }); }
-$$('.nav-links a').forEach(a=>a.addEventListener('click',()=>$('.nav-links')?.classList.remove('open')));
+const mobileNav = $('.nav-links');
+function closeMobileMenu(){
+  if(!menu || !mobileNav) return;
+  mobileNav.classList.remove('open');
+  menu.setAttribute('aria-expanded','false');
+}
+if(menu && mobileNav){
+  menu.addEventListener('click',()=>{
+    const open = mobileNav.classList.toggle('open');
+    menu.setAttribute('aria-expanded',String(open));
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key === 'Escape') closeMobileMenu();
+  });
+}
+$$('.nav-links a').forEach(a=>a.addEventListener('click',closeMobileMenu));
 
 const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}) : null;
 $$('.reveal').forEach(el=>io ? io.observe(el) : el.classList.add('in'));
+
+
+function initActiveNavigation(){
+  const links = $$('.nav-links a[href^="#"]')
+    .map(link => ({link, section: $(link.getAttribute('href'))}))
+    .filter(item => item.section);
+
+  if(!links.length) return;
+
+  const header = $('.site-header');
+  let scheduled = false;
+
+  const update = () => {
+    scheduled = false;
+    const marker = window.scrollY + (header?.offsetHeight || 0) + window.innerHeight * 0.28;
+    const firstSectionTop = links[0].section.offsetTop;
+    let activeItem = null;
+
+    if(marker >= firstSectionTop){
+      links.forEach(item => {
+        if(item.section.offsetTop <= marker) activeItem = item;
+      });
+    }
+
+    links.forEach(item => {
+      const active = item === activeItem;
+      item.link.classList.toggle('active', active);
+      if(active) item.link.setAttribute('aria-current','location');
+      else item.link.removeAttribute('aria-current');
+    });
+  };
+
+  const requestUpdate = () => {
+    if(scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(update);
+  };
+
+  window.addEventListener('scroll', requestUpdate, {passive:true});
+  window.addEventListener('resize', requestUpdate);
+  window.addEventListener('hashchange', requestUpdate);
+  update();
+}
+
+function initBackToTop(){
+  const button = $('[data-back-to-top]');
+  if(!button) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let scheduled = false;
+
+  const update = () => {
+    scheduled = false;
+    const visible = window.scrollY > Math.max(520, window.innerHeight * 0.7);
+    button.classList.toggle('visible', visible);
+    button.tabIndex = visible ? 0 : -1;
+  };
+
+  const requestUpdate = () => {
+    if(scheduled) return;
+    scheduled = true;
+    window.requestAnimationFrame(update);
+  };
+
+  window.addEventListener('scroll', requestUpdate, {passive:true});
+  window.addEventListener('resize', requestUpdate);
+  button.addEventListener('click',()=>{
+    window.scrollTo({
+      top:0,
+      behavior:reducedMotion.matches ? 'auto' : 'smooth'
+    });
+  });
+  update();
+}
+
+async function copyText(text){
+  if(navigator.clipboard && window.isSecureContext){
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const field = document.createElement('textarea');
+  field.value = text;
+  field.setAttribute('readonly','');
+  field.style.position = 'fixed';
+  field.style.opacity = '0';
+  document.body.appendChild(field);
+  field.select();
+  const copied = document.execCommand('copy');
+  field.remove();
+  if(!copied) throw new Error('Copy command failed');
+}
+
+function initCopyEmail(){
+  const button = $('[data-copy-email]');
+  if(!button) return;
+
+  const label = $('[data-copy-label]', button);
+  let resetTimer;
+
+  button.addEventListener('click', async ()=>{
+    const dict = mergedDictionary(currentLang);
+    try{
+      await copyText(button.dataset.copyEmail || '');
+      window.clearTimeout(resetTimer);
+      button.classList.add('copied');
+      if(label) label.textContent = dict['contact.copied'] || 'Copied';
+      button.setAttribute('aria-label', dict['contact.copied'] || 'Copied');
+
+      resetTimer = window.setTimeout(()=>{
+        button.classList.remove('copied');
+        const latest = mergedDictionary(currentLang);
+        if(label) label.textContent = latest['contact.copy'] || 'Copy';
+        button.setAttribute('aria-label', latest['contact.copyAria'] || 'Copy email address');
+      }, 1800);
+    }catch(error){
+      console.warn('The email address could not be copied.', error);
+    }
+  });
+}
 
 function initReportShowcase(){
   const tabs = $$('[data-report-tab]');
@@ -116,4 +264,7 @@ function initReportShowcase(){
 }
 
 initReportShowcase();
+initActiveNavigation();
+initBackToTop();
+initCopyEmail();
 setLanguage(currentLang);
