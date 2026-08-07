@@ -115,7 +115,7 @@ jgonzalez-bi.github.io/
 - Downloadable CV in both languages
 - Custom favicon and mobile icons
 - Social sharing preview for LinkedIn and WhatsApp
-- SEO descriptions, canonical URLs, sitemap, and robots file
+- SEO descriptions, canonical URLs, sitemap, and robots file.
 
 ## Technologies
 
