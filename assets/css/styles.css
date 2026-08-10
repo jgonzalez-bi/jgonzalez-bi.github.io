@@ -672,3 +672,41 @@ footer{padding:34px 0 44px;border-top:1px solid var(--line);margin-top:90px;colo
   }
 }
 
+
+/* Initial page entrance — subtle, fast, and motion-safe */
+@media (prefers-reduced-motion:no-preference){
+  .site-header{
+    animation:introFadeDown .34s cubic-bezier(.22,.61,.36,1) 0s both;
+  }
+  .hero .eyebrow{
+    animation:introFadeUp .40s cubic-bezier(.22,.61,.36,1) .02s both;
+  }
+  .hero h1{
+    animation:introFadeUp .47s cubic-bezier(.22,.61,.36,1) .055s both;
+  }
+  .hero .hero-lede{
+    animation:introFadeUp .44s cubic-bezier(.22,.61,.36,1) .10s both;
+  }
+  .hero .actions{
+    animation:introFadeUp .43s cubic-bezier(.22,.61,.36,1) .145s both;
+  }
+  .hero .availability{
+    animation:introFadeUp .40s cubic-bezier(.22,.61,.36,1) .18s both;
+  }
+  .hero .hero-visual{
+    animation:introVisualIn .52s cubic-bezier(.22,.61,.36,1) .075s both;
+  }
+
+  @keyframes introFadeUp{
+    from{opacity:0;transform:translateY(10px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @keyframes introFadeDown{
+    from{opacity:0;transform:translateY(-6px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @keyframes introVisualIn{
+    from{opacity:0;transform:translateY(10px) scale(.992)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+  }
+}
